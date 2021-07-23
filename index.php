@@ -72,14 +72,17 @@
                     <select name="fungsi" id="fungsi" class="form-control" required="required">
                         <option value="0">REST API</option>
                         <option value="1" selected>Native</option>
+
                     </select>
                 </div>
                 <div class="form-group">
                     <label>Select Framework</label>
                     <select name="fw" id="fw" class="form-control" required="required">
-                        <option value="0" selected>Codeigniter4</option>
-                        <option value="1">Golang</option>
-                        <option value="2">JS</option>
+                        <option value="1" selected>Codeigniter4</option>
+                        <option value="2">Golang Gorm Model</option>
+                        <option value="3">Golang Gin Controller</option>
+                        <option value="4">Golang Gin Route</option>
+                        <option value="5">JS</option>
                     </select>
                 </div>
 
@@ -141,9 +144,10 @@
                 var data = $(this).serialize();
                 var method = $("#method").val();
                 var fungsi = $("#fungsi").val();
+                var fw = $("#fw").val();
                 e.preventDefault();
 
-                if (method == 1 && fungsi == 1) {
+                if (method == 1 && fungsi == 1 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "method/create.php",
@@ -152,7 +156,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 2 && fungsi == 1) {
+                } else if (method == 2 && fungsi == 1 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "method/read.php",
@@ -161,7 +165,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 3 && fungsi == 1) {
+                } else if (method == 3 && fungsi == 1 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "method/update.php",
@@ -170,7 +174,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 4 && fungsi == 1) {
+                } else if (method == 4 && fungsi == 1 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "method/delete.php",
@@ -179,7 +183,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 5 && fungsi == 1) {
+                } else if (method == 5 && fungsi == 1 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "method/select.php",
@@ -188,7 +192,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 1 && fungsi == 0) {
+                } else if (method == 1 && fungsi == 0 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "php_api/create.php",
@@ -198,7 +202,7 @@
                         }
                     });
 
-                } else if (method == 2 && fungsi == 0) {
+                } else if (method == 2 && fungsi == 0 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "php_api/read.php",
@@ -207,7 +211,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 3 && fungsi == 0) {
+                } else if (method == 3 && fungsi == 0 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "php_api/update.php",
@@ -216,7 +220,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 4 && fungsi == 0) {
+                } else if (method == 4 && fungsi == 0 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "php_api/delete.php",
@@ -225,7 +229,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 5 && fungsi == 0) {
+                } else if (method == 5 && fungsi == 0 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "php_api/select.php",
@@ -234,10 +238,37 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 6) {
+                } else if (method == 6 && fw == 1) {
                     $.ajax({
                         type: "post",
                         url: "method/validate.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 2) {
+                    $.ajax({
+                        type: "post",
+                        url: "golang/golang_gorm_model.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 3) {
+                    $.ajax({
+                        type: "post",
+                        url: "golang/golang_gin_controller.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 4) {
+                    $.ajax({
+                        type: "post",
+                        url: "golang/golang_gin_route.php",
                         data: data,
                         success: function(response) {
                             $("#coding").html(response);
@@ -247,6 +278,12 @@
                     $("#coding").html("Not Detected Methods");
                 }
 
+            });
+            $("#coding").click(function(e) {
+                e.preventDefault();
+                $("#coding").select();
+                document.execCommand('copy');
+                alert("copied");
             });
         });
 

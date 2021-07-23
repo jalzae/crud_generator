@@ -39,7 +39,7 @@ for ($i = 1; $i < $hasil; $i++) {
 }
 echo '&#13;];&#13;';
 
-echo 'if ($this->validation->run($data, ' . $dbnya . ') == false) {
+echo 'if ($this->validation->run($data, "' . $dbnya . '") == false) {
     $response = [
         "message" =>  $this->validation->getErrors(),
     ];

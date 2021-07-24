@@ -61,7 +61,10 @@ for ($i = 0; $i < $hasil; $i++) {
     echo 'gorm:"column:' . $dbs[$i] . ';';
 
     if ($i == 0) {
-        echo "primary_key;auto_increment;";
+        echo "primary_key;auto_increment";
+    }
+    else {
+        echo "type:";
     }
     if ($types[$i] == "int" && $i != 0) {
         echo $columntypes[$i];
@@ -74,7 +77,7 @@ for ($i = 0; $i < $hasil; $i++) {
     }
 
     if ($nulls[$i] == "NO") {
-        echo ';not null';
+        echo ';not null;';
     }
 
 

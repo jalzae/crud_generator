@@ -40,7 +40,7 @@ echo 'type ' . ucfirst($dbnya) . ' struct {
 $hasil = count($dbs);
 
 for ($i = 0; $i < $hasil; $i++) {
-    echo $dbs[$i] . ' ';
+    echo ucfirst($dbs[$i]) . ' ';
 
     if ($types[$i] == "int") {
         echo "int ";
@@ -74,7 +74,7 @@ for ($i = 0; $i < $hasil; $i++) {
     }
 
     if ($nulls[$i] == "NO") {
-        echo 'not null';
+        echo ';not null';
     }
 
 

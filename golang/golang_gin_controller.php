@@ -34,7 +34,7 @@ type ' . $dbnya . 'Repo struct {
 echo '&#13;';
 
 echo '
-func ' . $dbnya . 'Controll() *' . $dbnya . 'Repo {
+func ' . ucfirst($dbnya) . 'Controll() *' . $dbnya . 'Repo {
 	db := config.InitDb()
 	db.AutoMigrate(&models.' . ucfirst($dbnya) . '{})
 	return &' . $dbnya . 'Repo{Db: db}
@@ -101,7 +101,7 @@ func (repository *' . $dbnya . 'Repo) Update' . $dbnya . '(c *gin.Context) {
 		return
 	}
 	c.BindJSON(&user)
-	err = models.Update' . ucfirst($dbnya) . '(repository.Db, &user)
+	err = models.Update' . $dbnya. '(repository.Db, &user)
 	if err != nil {
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{"error": err})
 		return

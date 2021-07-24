@@ -82,7 +82,8 @@
                         <option value="2">Golang Gorm Model</option>
                         <option value="3">Golang Gin Controller</option>
                         <option value="4">Golang Gin Route</option>
-                        <option value="5">JS</option>
+                        <option value="5">JS-Express-Route</option>
+                        <option value="6">JS-Express-Func</option>
                     </select>
                 </div>
 

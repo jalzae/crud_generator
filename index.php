@@ -65,6 +65,8 @@
                         <option value="4">Delete</option>
                         <option value="5">Select</option>
                         <option value="6">Validation</option>
+                        <option value="7">Route</option>
+                        <option value="8">CRUD</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -72,6 +74,10 @@
                     <select name="fungsi" id="fungsi" class="form-control" required="required">
                         <option value="0">REST API</option>
                         <option value="1" selected>Native</option>
+                        <option value="2">Middleware</option>
+                        <option value="3">JWT</option>
+                        <option value="4">DB Config</option>
+                        <option value="5">Login-JWT</option>
 
                     </select>
                 </div>
@@ -84,10 +90,10 @@
                         <option value="4">Golang Gin Route</option>
                         <option value="5">JS-Express-Service</option>
                         <option value="6">JS-Express-Route</option>
+                        <option value="7">Laravel</option>
+                        <option value="8">Lumen</option>
                     </select>
                 </div>
-
-
 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
@@ -193,7 +199,26 @@
                             $("#coding").html(response);
                         }
                     });
+                } else if (method == 7 && fungsi == 1 && fw == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "method/route.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (method == 8 && fungsi == 1 && fw == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "method/crud.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
                 } else if (method == 1 && fungsi == 0 && fw == 1) {
+
                     $.ajax({
                         type: "post",
                         url: "php_api/create.php",
@@ -239,7 +264,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (method == 6 && fw == 1) {
+                } else if (method == 6 && fw == 1 && fungsi == 0) {
                     $.ajax({
                         type: "post",
                         url: "method/validate.php",
@@ -248,7 +273,34 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (fw == 2) {
+                } else if (method == 6 && fw == 1 && fungsi == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "method/validate.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (method == 7 && fungsi == 0 && fw == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "php_api/route.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (method == 8 && fungsi == 0 && fw == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "php_api/crud.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 2 && fungsi == 0) {
                     $.ajax({
                         type: "post",
                         url: "golang/golang_gorm_model.php",
@@ -257,7 +309,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (fw == 3) {
+                } else if (fw == 3 && fungsi == 0) {
                     $.ajax({
                         type: "post",
                         url: "golang/golang_gin_controller.php",
@@ -266,7 +318,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (fw == 4) {
+                } else if (fw == 4 && fungsi == 0) {
                     $.ajax({
                         type: "post",
                         url: "golang/golang_gin_route.php",
@@ -275,7 +327,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (fw == 5) {
+                } else if (fw == 5 && fungsi == 0) {
                     $.ajax({
                         type: "post",
                         url: "js_express/express_service.php",
@@ -284,7 +336,7 @@
                             $("#coding").html(response);
                         }
                     });
-                } else if (fw == 6) {
+                } else if (fw == 6 && fungsi == 0) {
                     $.ajax({
                         type: "post",
                         url: "js_express/express_router.php",

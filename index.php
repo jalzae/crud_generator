@@ -30,8 +30,7 @@
                     <label>Select DB</label>
                     <select name="databases" id="databases" class="form-control" required="required">
                         <?php
-                        $link = mysqli_init();
-                        $success = mysqli_connect("localhost", "root", "", "mysql");
+                        include('config.php');
                         $set = mysqli_query($success, "SHOW DATABASES;");
                         $dbs = array();
                         $kabehdb = array();
@@ -92,6 +91,7 @@
                         <option value="6">JS-Express-Route</option>
                         <option value="7">Laravel</option>
                         <option value="8">Lumen</option>
+                        <option value="8">PHP Native</option>
                     </select>
                 </div>
 

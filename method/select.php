@@ -12,7 +12,7 @@ $dbs = array();
 while ($db = mysqli_fetch_row($set))
     $dbs[] = $db[0];
 
-echo '$id=$this->' . $dbnya . '->request("id");';
+echo '$id=$this->request->getVar("id");';
 echo '&#13;';
 
 echo '&#13;$data=$this->' . $dbnya . '->table()->where(["' . $dbs[0] . '"=>$id])->get(1)->getRowArray();';

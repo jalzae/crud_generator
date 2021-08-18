@@ -71,8 +71,8 @@
                 <div class="form-group">
                     <label>Select Fungsi</label>
                     <select name="fungsi" id="fungsi" class="form-control" required="required">
-                        <option value="0">REST API</option>
-                        <option value="1" selected>Native</option>
+                        <option value="0" selected>REST API</option>
+                        <option value="1">Native</option>
                         <option value="2">Middleware</option>
                         <option value="3">JWT</option>
                         <option value="4">DB Config</option>

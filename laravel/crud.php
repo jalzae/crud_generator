@@ -1,6 +1,6 @@
 <?php
 $dbnya = $_POST["tablenya"];
-$request = "$request";
+$request = '$request';
 include('construct.php');
 
 echo "public function get()

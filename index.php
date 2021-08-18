@@ -345,6 +345,78 @@
                             $("#coding").html(response);
                         }
                     });
+                } else if (fw == 8 && fungsi == 0 && method == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/create.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 2) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/read.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 3) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/update.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 4) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/delete.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 5) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/select.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 6) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/validate.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 7) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/route.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 8 && fungsi == 0 && method == 8) {
+                    $.ajax({
+                        type: "post",
+                        url: "lumen/CRUD.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
                 } else {
                     $("#coding").html("Not Detected Methods");
                 }

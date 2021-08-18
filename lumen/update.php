@@ -6,45 +6,64 @@ $fungsi = $_POST["fungsi"];
 $success = new mysqli("localhost", "root", "", "$db");
 
 $set = mysqli_query($success, "SHOW FIELDS FROM $dbnya");
-$set1 = mysqli_query($success, "SHOW FIELDS FROM $dbnya WHERE Type NOT LIKE 'datetime'");
-$set2 = mysqli_query($success, "SHOW FIELDS FROM $dbnya WHERE Type LIKE 'datetime'");
 
-$input = array();
-$input2 = array();
 $dbs = array();
-$dbs1 = array();
 
-while ($inputdb = mysqli_fetch_row($set1))
-    $input[] = $inputdb[0];
-$hasil = count($input);
-
-for ($i = 0; $i < $hasil; $i++) {
-    print_r('&#13;$' . $input[$i] . '=$this->request->getVar("' . $input[$i] . '");');
-}
-
-while ($input2db = mysqli_fetch_row($set2))
-    $input2[] = $input2db[0];
-$hasil = count($input2);
-for ($i = 0; $i < $hasil; $i++) {
-    print_r('&#13;$' . $input2[$i] . '=date("Y-m-d H:i:s", strtotime("+12 hours"));');
-}
-
-echo '&#13;&#13;$data=[';
 while ($db = mysqli_fetch_row($set))
     $dbs[] = $db[0];
+
+echo "header('Content-Type: application/json');
+
+";
+$hasil = count($dbs);
+for ($i = 0; $i < $hasil; $i++) {
+    print_r('$' . $dbs[$i] . '"=$request->' . $dbs[$i] . ';&#13;');
+}
+
+
+echo '
+
+$data = [   ';
 
 $hasil = count($dbs);
 for ($i = 1; $i < $hasil; $i++) {
     print_r('&#13;"' . $dbs[$i] . '"=>$' . $dbs[$i] . ',');
 }
-echo '&#13;];&#13;';
+echo '
+];
 
-echo '&#13;$save=$this->' . $dbnya . '->table()->update($data,["' . $input[0] . '"=>$' . $input[0] . ']);';
-echo '&#13;if($save){
-    echo "Berhasil Update";
+$valid = [
+';
+$hasil = count($dbs);
+for ($i = 1; $i < $hasil; $i++) {
+    print_r('$' . $dbs[$i] . '"=>' . $dbs[$i] . ',&#13');
 }
-else {
-    echo "Gagal Update";
-}';
 
-mysqli_close($success);
+echo '
+];';
+
+echo '
+$validator= Validator::make($request->all(), $valid);
+
+if ($validator->fails()) {
+    return response()->json(array(
+        "status"=> "ERROR",
+        "message" => $validator->errors(),
+    ), 404);
+} else {
+    $save = DB::table("' . $dbnya . '")->where('.$dbs[0].',$'.$dbs[0].')->update($data);
+
+    if ($save) {
+        return response()->json(array(
+            "status" => "SUCCESS",
+            "message" => "Berhasil",
+            "results" => $data
+        ), 200);
+    } else {
+        return response()->json(array(
+            "status" => "ERROR",
+            "message" => "Gagal",
+            "results" => $data
+        ), 404);
+    }
+}';

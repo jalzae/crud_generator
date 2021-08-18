@@ -1,13 +1,13 @@
 <?php
 $dbnya = $_POST["tablenya"];
 
-echo '$routes->get("/' . $dbnya . '", "' . $dbnya . '::get' . $dbnya . '");
+echo '$routes->get("/' . $dbnya . '", "' . $dbnya . '@index");
 ';
-echo '$routes->post("/create' . $dbnya . '", "' . $dbnya . '::create' . $dbnya . '");
+echo '$routes->post("/' . $dbnya . '", "' . $dbnya . '@create");
 ';
-echo '$routes->post("/update' . $dbnya . '", "' . $dbnya . '::update' . $dbnya . '");
+echo '$routes->put("/' . $dbnya . '/{id}", "' . $dbnya . '@update");
 ';
-echo '$routes->post("/delete' . $dbnya . '", "' . $dbnya . '::delete' . $dbnya . '");
+echo '$routes->delete("/' . $dbnya . '/{id}", "' . $dbnya . '@delete");
 ';
-echo '$routes->post("/detail' . $dbnya . '", "' . $dbnya . '::detail' . $dbnya . '");
+echo '$routes->get("/' . $dbnya . '/{id}", "' . $dbnya . '@detail");
 ';

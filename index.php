@@ -417,6 +417,78 @@
                             $("#coding").html(response);
                         }
                     });
+                } else if (fw == 7 && fungsi == 0 && method == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/create.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 2) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/read.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 3) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/update.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 4) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/delete.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 5) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/select.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 6) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/validate.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 7) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/route.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (fw == 7 && fungsi == 0 && method == 8) {
+                    $.ajax({
+                        type: "post",
+                        url: "laravel_api/CRUD.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
                 } else {
                     $("#coding").html("Not Detected Methods");
                 }

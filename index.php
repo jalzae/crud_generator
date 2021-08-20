@@ -96,6 +96,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" style="float: right;" id="copythis" class="btn btn-primary">Copy</button>
             </form>
 
             <br>
@@ -566,7 +567,7 @@
                 }
 
             });
-            $("#coding").click(function(e) {
+            $("#copythis").click(function(e) {
                 e.preventDefault();
                 $("#coding").select();
                 document.execCommand('copy');

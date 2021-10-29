@@ -66,6 +66,7 @@
                         <option value="6">Validation</option>
                         <option value="7">Route</option>
                         <option value="8">CRUD</option>
+                        <option value="9">Model</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -213,6 +214,15 @@
                     $.ajax({
                         type: "post",
                         url: "method/crud.php",
+                        data: data,
+                        success: function(response) {
+                            $("#coding").html(response);
+                        }
+                    });
+                } else if (method == 9 && fungsi == 1 && fw == 1) {
+                    $.ajax({
+                        type: "post",
+                        url: "method/model.php",
                         data: data,
                         success: function(response) {
                             $("#coding").html(response);

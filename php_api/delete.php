@@ -20,11 +20,11 @@ echo '&#13;if($save){
     $message = [
         "message" => "Sukses Delete",
      ];
-     return $this->respond($data, 200);
+     return $this->respond($message, 200);
 }
 else {
     $message = [
         "message" => "Gagal Delete",
      ];
-     return $this->respond($data, 400);
+     return $this->respond($message, 400);
 }';

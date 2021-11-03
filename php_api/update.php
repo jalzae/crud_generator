@@ -26,7 +26,7 @@ while ($input2db = mysqli_fetch_row($set2))
     $input2[] = $input2db[0];
 $hasil = count($input2);
 for ($i = 0; $i < $hasil; $i++) {
-    print_r('&#13;$' . $input2[$i] . '=date("Y-m-d H:i:s", strtotime("+12 hours"));');
+    print_r('&#13;$' . $input2[$i] . '=date("Y-m-d H:i:s");');
 }
 
 echo '&#13;&#13;$data=[';
@@ -39,7 +39,7 @@ for ($i = 1; $i < $hasil; $i++) {
 }
 echo '&#13;];&#13;';
 
-echo 'if ($this->validation->run($data, ' . $dbnya . ') == false) {
+echo 'if ($this->validation->run($data, "' . $dbnya . '") == false) {
     $response = [
         "message" =>  $this->validation->getErrors(),
     ];
